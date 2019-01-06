@@ -8,10 +8,10 @@ structs = [
     {
         'url': 'https://www.bbc.com/news/',
         'beforeLink': 'https://www.bbc.com/',
-        'heading': 'div.nw-c-top-stories__primary-item h3.gs-c-promo-heading__title',
-        'content': 'div.nw-c-top-stories__primary-item p.gs-c-promo-summary',
-        'link': 'div.nw-c-top-stories__primary-item a.gs-c-promo-heading',
-        'image': 'div.nw-c-top-stories__primary-item div.gs-c-promo-image img',
+        'heading': 'div.nw-c-top-stories-primary__story h3.gs-c-promo-heading__title',
+        'content': 'div.nw-c-top-stories-primary__story p.gs-c-promo-summary',
+        'link': 'div.nw-c-top-stories-primary__story a.gs-c-promo-heading',
+        'image': 'div.nw-c-top-stories-primary__story div.gs-c-promo-image img',
         'ref': 'BBC News'
     },
     {
