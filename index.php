@@ -14,6 +14,9 @@
 		margin: 20px auto;
 		max-width: 500px;
 	}
+	.card .card-header {
+		min-height: 70px;
+	}
 	.card .card-body {
 		min-height: 220px;
 		background-size: cover;
@@ -40,30 +43,34 @@
 <body> 
 	<div class="container">
 		<h2 class="text-center">Worldwide Top News</h2>
-		<?php
-		$data = exec('python scrapping.py');
-		$data = json_decode($data, true);
+			<div class="row">
+			<?php
+			$data = exec('python scrapping.py');
+			$data = json_decode($data, true);
 
-		if($data) {
-		foreach($data as $d) {
-			$image = !empty($d['image']) ? $d['image'] : 'img/no-image.png';
-			?>
-			<div class="card">
-				<div class="card-header"><?= $d['heading'] ?></div>
-				<div class="card-body" style="background-image: url('<?= $image ?>')">
-					<p><?= $d['content'] ?></p>
-				</div>
-				<div class="card-footer">
-					<div class="row">
-						<div class="col-md-6 col-sm-6 col-xs-6"><a target="_blank" href="<?= $d['url'] ?>"><?= $d['reference'] ?></a></div>
-						<div class="col-md-6 col-sm-6 col-xs-6 text-right"><a href="<?= $d['link'] ?>" target="_blank">Read more</a></div>
+			if($data) {
+			foreach($data as $d) {
+				$image = !empty($d['image']) ? $d['image'] : 'img/no-image.png';
+				?>
+				<div class="col-md-6">
+					<div class="card">
+						<div class="card-header"><?= $d['heading'] ?></div>
+						<div class="card-body" style="background-image: url('<?= $image ?>')">
+							<p><?= $d['content'] ?></p>
+						</div>
+						<div class="card-footer">
+							<div class="row">
+								<div class="col-md-6 col-sm-6 col-xs-6"><a target="_blank" href="<?= $d['url'] ?>"><?= $d['reference'] ?></a></div>
+								<div class="col-md-6 col-sm-6 col-xs-6 text-right"><a href="<?= $d['link'] ?>" target="_blank">Read more</a></div>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		<?php } ?>
-		<?php } else { ?>
-			<h3 class="text-center">Not found</h3>
-		<?php } ?>
+			<?php } ?>
+			<?php } else { ?>
+				<h3 class="text-center">Not found</h3>
+			<?php } ?>
+		</div>
 	</div>
 </body>
 </html>
