@@ -44,6 +44,7 @@
 		$data = exec('python scrapping.py');
 		$data = json_decode($data, true);
 
+		if($data) {
 		foreach($data as $d) {
 			$image = !empty($d['image']) ? $d['image'] : 'img/no-image.png';
 			?>
@@ -59,6 +60,9 @@
 					</div>
 				</div>
 			</div>
+		<?php } ?>
+		<?php } else { ?>
+			<h3>Not found</h3>
 		<?php } ?>
 	</div>
 </body>

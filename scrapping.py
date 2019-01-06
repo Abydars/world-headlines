@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 
 structs = [
     {
-        'url': 'https://www.bbc.com/news',
+        'url': 'https://www.bbc.com/',
         'heading': 'div.nw-c-top-stories__primary-item h3.gs-c-promo-heading__title',
         'content': 'div.nw-c-top-stories__primary-item p.gs-c-promo-summary',
         'link': 'div.nw-c-top-stories__primary-item a.gs-c-promo-heading',
@@ -63,8 +63,11 @@ for struct in structs:
 
     heading = soup.select_one(struct['heading']).text if struct['heading'] != '' else ''
     content = soup.select_one(struct['content']).text if struct['content'] != '' else ''
-    link = struct['url']+soup.select_one(struct['link'])['href'] if struct['link'] != '' else ''
+    link = soup.select_one(struct['link'])['href'] if struct['link'] != '' else ''
     image = soup.select_one(struct['image'])['src'] if struct['image'] != '' else ''
+	
+	link = link.replace(struct['url'], '')
+	link = struct['url']+link
 
     data.append({
         'heading': heading.strip(),
