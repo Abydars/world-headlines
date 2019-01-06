@@ -55,8 +55,8 @@
 				</div>
 				<div class="card-footer">
 					<div class="row">
-						<div class="col-md-6 col-xs-6"><a target="_blank" href="<?= $d['url'] ?>"><?= $d['reference'] ?></a></div>
-						<div class="col-md-6 col-xs-6 text-right"><a href="<?= $d['link'] ?>" target="_blank">Read more</a></div>
+						<div class="col-md-6 col-sm-6 col-xs-6"><a target="_blank" href="<?= $d['url'] ?>"><?= $d['reference'] ?></a></div>
+						<div class="col-md-6 col-sm-6 col-xs-6 text-right"><a href="<?= $d['link'] ?>" target="_blank">Read more</a></div>
 					</div>
 				</div>
 			</div>
