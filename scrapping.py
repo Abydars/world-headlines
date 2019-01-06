@@ -76,6 +76,7 @@ for struct in structs:
         'heading': heading.strip(),
         'content': content.strip(),
         'link': link,
+        'url': struct['url'],
         'image': image,
         'reference': struct['ref']
         })
