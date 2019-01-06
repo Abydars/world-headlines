@@ -55,7 +55,7 @@
 				</div>
 				<div class="card-footer">
 					<div class="row">
-						<div class="col-md-6"><?= $d['reference'] ?></div>
+						<div class="col-md-6"><a href="<?= $d['url'] ?>"><?= $d['reference'] ?></a></div>
 						<div class="col-md-6 text-right"><a href="<?= $d['link'] ?>">Read more</a></div>
 					</div>
 				</div>
