@@ -6,7 +6,8 @@ from bs4 import BeautifulSoup
 
 structs = [
     {
-        'url': 'https://www.bbc.com/',
+        'url': 'https://www.bbc.com/news/',
+        'beforeLink': 'https://www.bbc.com/',
         'heading': 'div.nw-c-top-stories__primary-item h3.gs-c-promo-heading__title',
         'content': 'div.nw-c-top-stories__primary-item p.gs-c-promo-summary',
         'link': 'div.nw-c-top-stories__primary-item a.gs-c-promo-heading',
@@ -15,6 +16,7 @@ structs = [
     },
     {
         'url': 'https://dunyanews.tv/',
+        'beforeLink': 'https://dunyanews.tv/',
         'heading': 'div.top_story div.ovrtexts p',
         'content': '',
         'link': 'div.top_story a',
@@ -23,6 +25,7 @@ structs = [
     },
     {
         'url': 'https://www.dawn.com/',
+        'beforeLink': '',
         'heading': 'article.box.story h2.story__title a',
         'content': 'article.box.story .story__excerpt',
         'link': 'article.box.story h2.story__title a',
@@ -31,6 +34,7 @@ structs = [
     },
     {
         'url': 'https://www.businessplustv.pk/',
+        'beforeLink': '',
         'heading': 'div.features-video-box .hover-box h2 a',
         'content': '',
         'link': 'div.features-video-box .hover-box h2 a',
@@ -39,6 +43,7 @@ structs = [
     },
     {
         'url': 'https://www.news18.com/',
+        'beforeLink': '',
         'heading': 'div.lead-story .lstory-top h1',
         'content': '',
         'link': 'div.lead-story .lstory-top a',
@@ -47,6 +52,7 @@ structs = [
     },
     {
         'url': 'https://www.aljazeera.com/',
+        'beforeLink': 'https://www.aljazeera.com/',
         'heading': 'div#queen-is-dead-page h1 a.queen-top-sec-title',
         'content': 'div#queen-is-dead-page p.queen-top-desc',
         'link': 'div#queen-is-dead-page h1 a.queen-top-sec-title',
@@ -63,11 +69,8 @@ for struct in structs:
 
     heading = soup.select_one(struct['heading']).text if struct['heading'] != '' else ''
     content = soup.select_one(struct['content']).text if struct['content'] != '' else ''
-    link = soup.select_one(struct['link'])['href'] if struct['link'] != '' else ''
+    link = struct['beforeLink']+soup.select_one(struct['link'])['href'] if struct['link'] != '' else ''
     image = soup.select_one(struct['image'])['src'] if struct['image'] != '' else ''
-	
-	link = link.replace(struct['url'], '')
-	link = struct['url']+link
 
     data.append({
         'heading': heading.strip(),
