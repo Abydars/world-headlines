@@ -62,7 +62,7 @@
 			</div>
 		<?php } ?>
 		<?php } else { ?>
-			<h3>Not found</h3>
+			<h3 class="text-center">Not found</h3>
 		<?php } ?>
 	</div>
 </body>
